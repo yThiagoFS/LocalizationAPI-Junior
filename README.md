@@ -10,6 +10,7 @@ Este repositório contém o código-fonte de uma Web API desenvolvida como parte
 - [Requisitos](#requisitos)
 - [Configuração](#configuração)
 - [Uso](#uso)
+- [Contribuição](#contribuição)
 
 ## Recursos
 
@@ -68,5 +69,11 @@ A API possui as seguintes rotas:
 - `DELETE /api/v1/localization/deleteById/{id}`: Exclui uma localização existente (requer autenticação).
   
 *Lembre-se de autenticar-se antes de usar as rotas protegidas.*
+
+## Contribuição
+
+Se deseja contribuir para este projeto, sinta-se à vontade para criar um _pull request_ ou abrir uma _issue_.
+
+Não se esqueça de deixar uma estrelinha no repositório :)
 
 © 2023 Thiago Ferreira
