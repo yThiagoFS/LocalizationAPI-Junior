@@ -25,7 +25,7 @@ Antes de iniciar o projeto, certifique-se de atender aos seguintes requisitos:
 
 - [Visual Studio](https://visualstudio.microsoft.com/) ou [Visual Studio Code](https://code.visualstudio.com/).
 - [.NET Core SDK](https://dotnet.microsoft.com/download) instalado.
-- Um banco de dados compatível (como o SQL Server) configurado.
+- Um banco de dados compatível (MySQL) configurado.
 - Pacotes e dependências listados no arquivo `.csproj` instalados.
 
 ## Configuração
