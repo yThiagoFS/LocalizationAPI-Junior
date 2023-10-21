@@ -67,7 +67,7 @@ namespace BaltaIoChallenge.WebApi.Extensions.v1
                     Contact = new OpenApiContact
                     {
                         Name = "Repositório do projeto",
-                        Url = new Uri("https://github.com/yThiagoFS/balta.io_challenge")
+                        Url = new Uri("https://github.com/yThiagoFS/LocalizationAPi")
                     },
                 });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
