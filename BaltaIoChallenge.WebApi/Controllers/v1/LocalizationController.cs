@@ -37,7 +37,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         {
             var response = await _searchLocalizationService.SearchByStateAsync(state);
 
-            if (response.Status == 404) return NotFound(response);
+            if (response.Status == (int)HttpStatusCode.NotFound) return NotFound(response);
 
             return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
@@ -67,7 +67,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         {
             var response = await _searchLocalizationService.SearchByCityAsync(city);
 
-            if (response.Status == 404) return NotFound(response);
+            if (response.Status == (int)HttpStatusCode.NotFound) return NotFound(response);
 
             return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
