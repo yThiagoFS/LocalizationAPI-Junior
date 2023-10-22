@@ -1,6 +1,6 @@
-# Desafio balta.io - Web API
+# API de Localização - Desafio balta.io
 
-Este repositório contém o código-fonte de uma Web API desenvolvida como parte de um desafio criado pelo <a href="https://www.linkedin.com/in/andrebaltieri/">André Baltieri (<a href="https://balta.io/">balta.io</a>)</a>. A API foi construída usando ASP.NET Core 7 e possui funcionalidades de gerenciamento de localizações e autenticação de usuários.
+Este repositório contém o código-fonte de uma Web API desenvolvida como parte de um desafio criado pelo <a href="https://www.linkedin.com/in/andrebaltieri/">André Baltieri</a> (<a href="https://balta.io/">balta.io</a>). A API foi construída usando ASP.NET Core 7 e possui funcionalidades de gerenciamento de localizações e autenticação de usuários.
 
 ### Projeto hospedado em: <a href="https://localizationapi.onrender.com/swagger/index.html">https://localizationapi.onrender.com/swagger/index.html</a>
 
