@@ -54,7 +54,7 @@ Siga as etapas abaixo para configurar e executar o projeto:
    ```sh
    dotnet run
 
-A API estará disponível em `http://localhost:5000`.
+A API estará disponível em `https://localhost:7247`.
 
 ## Uso
 A API possui as seguintes rotas:
