@@ -1,8 +1,4 @@
-﻿using BaltaIoChallenge.WebApi.Models.v1.Dtos.LocalizationDto.SearchLocalizationDto;
-using BaltaIoChallenge.WebApi.Models.v1.Dtos;
-using BaltaIoChallenge.WebApi.Models.v1.Entities;
-using System;
-using BaltaIoChallenge.WebApi.Models.v1.Dtos.LocalizationDto.LocalizationManagementDto;
+﻿using BaltaIoChallenge.WebApi.Models.v1.Entities;
 
 namespace BaltaIoChallenge.WebApi.Repository.v1.Contracts
 {

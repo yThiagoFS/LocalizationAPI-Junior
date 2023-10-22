@@ -2,7 +2,6 @@
 using BaltaIoChallenge.WebApi.Models.v1.Entities;
 using BaltaIoChallenge.WebApi.Repository.v1.Contracts;
 using Microsoft.EntityFrameworkCore;
-using System.Threading;
 
 namespace BaltaIoChallenge.WebApi.Repository.v1.Implementations
 {

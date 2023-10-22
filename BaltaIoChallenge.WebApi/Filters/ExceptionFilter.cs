@@ -30,7 +30,7 @@ namespace BaltaIoChallenge.WebApi.Filters
             if (context.Exception is SpecificationException)
                 HandleSpecificationException(context);
 
-            if(context.Exception is EmailException)
+            if (context.Exception is EmailException)
                 HandleEmailException(context);
         }
 

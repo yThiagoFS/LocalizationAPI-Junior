@@ -7,7 +7,7 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Localization.Contracts
     {
         Task<ResponseDto<LocalizationManagementResponseDto>> CreateLocalizationAsync(LocalizationManagementRequestDto request);
 
-        Task<ResponseDto<LocalizationManagementResponseDto>> UpdateLocalizationByCodeAsync(string code,UpdateLocalizationRequestDto request);
+        Task<ResponseDto<LocalizationManagementResponseDto>> UpdateLocalizationByCodeAsync(string code, UpdateLocalizationRequestDto request);
 
         Task<ResponseDto<LocalizationManagementResponseDto>> DeleteLocalizationByCodeAsync(string code);
     }

@@ -1,5 +1,4 @@
-﻿using BaltaIoChallenge.WebApi.Exceptions;
-using BaltaIoChallenge.WebApi.Exceptions.v1;
+﻿using BaltaIoChallenge.WebApi.Exceptions.v1;
 using BaltaIoChallenge.WebApi.Models.v1.Dtos;
 using BaltaIoChallenge.WebApi.Models.v1.Dtos.AuthDto.RegisterDto;
 using BaltaIoChallenge.WebApi.Models.v1.Entities;
@@ -20,7 +19,7 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Auth.Implementations.Register
 
         public RegisterService(
             IUserRepository userRepository
-            ,IRoleRepository roleRepository)
+            , IRoleRepository roleRepository)
         {
             _userRepository = userRepository;
             _roleRepository = roleRepository;
@@ -32,7 +31,7 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Auth.Implementations.Register
 
             var roleExists = await _roleRepository.RoleExistsAsync(request.Role);
 
-            if(!roleExists)
+            if (!roleExists)
                 return new ResponseDto<RegisterUserResponseDto>("Role not found. Please, try to register as user or admin.", 404);
 
             var user = CreateUser(request);

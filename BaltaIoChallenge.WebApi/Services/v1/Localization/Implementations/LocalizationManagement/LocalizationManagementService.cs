@@ -15,7 +15,7 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Localization.Implementations.Locat
     {
         private readonly ILocalizationRepository _localizationRepository;
 
-        public LocalizationManagementService(ILocalizationRepository localizationRepository) 
+        public LocalizationManagementService(ILocalizationRepository localizationRepository)
             => _localizationRepository = localizationRepository;
 
         public async Task<ResponseDto<LocalizationManagementResponseDto>> CreateLocalizationAsync(LocalizationManagementRequestDto request)
@@ -25,7 +25,7 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Localization.Implementations.Locat
 
             return new ResponseDto<LocalizationManagementResponseDto>(
                 "Localization created successfully"
-                ,new LocalizationManagementResponseDto(newLocalization.Id, newLocalization.State, newLocalization.City));
+                , new LocalizationManagementResponseDto(newLocalization.Id, newLocalization.State, newLocalization.City));
         }
 
         public async Task<ResponseDto<LocalizationManagementResponseDto>> UpdateLocalizationByCodeAsync(string code, UpdateLocalizationRequestDto request)
@@ -81,7 +81,7 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Localization.Implementations.Locat
 
                 return newLocalization;
             }
-            catch(DbUpdateException)
+            catch (DbUpdateException)
             {
                 throw new DbUpdateException($"Failed to create the localization.");
             }
@@ -95,7 +95,7 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Localization.Implementations.Locat
         {
             var actualLocalization = await _localizationRepository.GetByCodeAsync(code);
 
-            if(actualLocalization is not null) 
+            if (actualLocalization is not null)
             {
                 if (!string.IsNullOrEmpty(request.State))
                 {
@@ -145,10 +145,10 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Localization.Implementations.Locat
             else if (!Regex.IsMatch(state, "^[a-zA-Z]*$"))
                 errors.Append("State: State must have only letters.");
 
-            if(errors.Length > 0)
+            if (errors.Length > 0)
                 throw new SpecificationException($"{string.Join(System.Environment.NewLine, errors)}");
         }
-        
+
         private static void ValidateCity(string city)
         {
             if (!Regex.IsMatch(city, "^[^0-9]+$"))

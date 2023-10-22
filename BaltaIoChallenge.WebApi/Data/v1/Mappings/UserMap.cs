@@ -1,5 +1,4 @@
 ﻿using BaltaIoChallenge.WebApi.Models.v1.Entities;
-using BaltaIoChallenge.WebApi.Models.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

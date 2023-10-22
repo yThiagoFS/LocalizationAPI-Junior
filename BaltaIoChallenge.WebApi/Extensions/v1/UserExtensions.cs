@@ -1,8 +1,5 @@
 ﻿using BaltaIoChallenge.WebApi.Models.v1.Entities;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 
 namespace BaltaIoChallenge.WebApi.Extensions.v1
 {

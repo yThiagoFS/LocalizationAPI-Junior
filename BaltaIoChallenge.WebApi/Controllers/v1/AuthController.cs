@@ -1,12 +1,8 @@
-﻿using BaltaIoChallenge.WebApi.Exceptions.v1;
-using BaltaIoChallenge.WebApi.Models.v1.Dtos;
+﻿using BaltaIoChallenge.WebApi.Models.v1.Dtos;
 using BaltaIoChallenge.WebApi.Models.v1.Dtos.AuthDto.LoginDto;
 using BaltaIoChallenge.WebApi.Models.v1.Dtos.AuthDto.RegisterDto;
-using BaltaIoChallenge.WebApi.Models.v1.Dtos.LocalizationDto.SearchLocalizationDto;
 using BaltaIoChallenge.WebApi.Services.v1.Auth.Contracts;
 using Microsoft.AspNetCore.Mvc;
-using Mono.TextTemplating;
-using Humanizer;
 using System.Net;
 
 namespace BaltaIoChallenge.WebApi.Controllers.v1
@@ -45,11 +41,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         {
             var response = await _registerService.RegisterUserAsync(dto);
 
-            if (!response.IsSuccess) return BadRequest(response);
-
-            return Ok(response);
-            
-            //return BadRequest(new ResponseDto<string>("Invalid email", ex.Message, 400));
+            return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
 
         /// <summary>
@@ -83,9 +75,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
 
             if (response.Status == (int)HttpStatusCode.NotFound) return NotFound(response);
 
-            if (!response.IsSuccess) return BadRequest(response);
-
-            return Ok(response);
+            return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
     }
 }

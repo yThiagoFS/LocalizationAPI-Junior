@@ -20,7 +20,7 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Localization.Implementations.Searc
 
             if (localization is null || !localization.Any())
                 return new ResponseDto<List<SearchLocalizationResponseDto>>("Localization not found", 404);
-                
+
             response.AddRange(localization.Select(l => new SearchLocalizationResponseDto(l.Id, l.State, l.City)));
 
             return new ResponseDto<List<SearchLocalizationResponseDto>>("Localization found", response, 200);
@@ -35,8 +35,8 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Localization.Implementations.Searc
 
             return new ResponseDto<SearchLocalizationResponseDto>(
                     "Localization found"
-                    ,new SearchLocalizationResponseDto(localization.Id, localization.State, localization.City)
-                    ,200);
+                    , new SearchLocalizationResponseDto(localization.Id, localization.State, localization.City)
+                    , 200);
         }
 
         public async Task<ResponseDto<List<SearchLocalizationResponseDto>>> SearchByStateAsync(string state)

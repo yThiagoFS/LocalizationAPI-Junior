@@ -1,14 +1,9 @@
-﻿using BaltaIoChallenge.WebApi.Exceptions.v1;
-using BaltaIoChallenge.WebApi.Models.v1.Dtos;
-using BaltaIoChallenge.WebApi.Models.v1.Dtos.AuthDto.LoginDto;
+﻿using BaltaIoChallenge.WebApi.Models.v1.Dtos;
 using BaltaIoChallenge.WebApi.Models.v1.Dtos.LocalizationDto.LocalizationManagementDto;
 using BaltaIoChallenge.WebApi.Models.v1.Dtos.LocalizationDto.SearchLocalizationDto;
 using BaltaIoChallenge.WebApi.Services.v1.Localization.Contracts;
-using BaltaIoChallenge.WebApi.Services.v1.Localization.Implementations.SearchLocalization;
-using Humanizer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Mono.TextTemplating;
 using System.Net;
 
 namespace BaltaIoChallenge.WebApi.Controllers.v1
@@ -44,9 +39,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
 
             if (response.Status == 404) return NotFound(response);
 
-            if (!response.IsSuccess) return BadRequest(response);
-
-            return Ok(response);
+            return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
 
         /// <summary>
@@ -76,9 +69,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
 
             if (response.Status == 404) return NotFound(response);
 
-            if (!response.IsSuccess) return BadRequest(response);
-
-            return Ok(response);
+            return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
 
         /// <summary>
@@ -108,9 +99,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
 
             if (response.Status == (int)HttpStatusCode.NotFound) return NotFound(response);
 
-            if (!response.IsSuccess) return BadRequest(response);
-
-            return Ok(response);
+            return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
 
         /// <summary>
@@ -143,10 +132,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         {
             var response = await _localizationManagementService.CreateLocalizationAsync(dto);
 
-            if (response.Status == (int)HttpStatusCode.BadRequest
-                || !response.IsSuccess) return BadRequest(response);
-
-            return Ok(response);
+            return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
 
         /// <summary>
@@ -181,12 +167,9 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         {
             var response = await _localizationManagementService.UpdateLocalizationByCodeAsync(id, dto);
 
-            if (response.Status == (int)HttpStatusCode.BadRequest
-                || !response.IsSuccess) return BadRequest(response);
-
             if (response.Status == (int)HttpStatusCode.NotFound) return NotFound(response);
 
-            return Ok(response);
+            return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
 
         /// <summary>
@@ -215,12 +198,9 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         {
             var response = await _localizationManagementService.DeleteLocalizationByCodeAsync(id);
 
-            if (response.Status == (int)HttpStatusCode.BadRequest
-                || !response.IsSuccess) return BadRequest(response);
-
             if (response.Status == (int)HttpStatusCode.NotFound) return NotFound(response);
 
-            return Ok(response);
+            return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
     }
 }

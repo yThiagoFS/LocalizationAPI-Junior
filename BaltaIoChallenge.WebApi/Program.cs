@@ -38,7 +38,7 @@ app.UseStatusCodePages(async context =>
         await context.HttpContext.Response.WriteAsJsonAsync<ResponseDto<string>>(
             new ResponseDto<string>("You're not allowed to use this method. Try to login or register.", statusCode));
     }
-    
+
 });
 
 app.UseHttpsRedirection();
@@ -64,7 +64,7 @@ async Task UpdateDatabase()
             context.Database.BeginTransaction();
             context.Database.Migrate();
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             context.Database.RollbackTransaction();
             throw new Exception($"{ex.Message}");

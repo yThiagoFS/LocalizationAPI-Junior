@@ -59,8 +59,8 @@ namespace BaltaIoChallenge.WebApi.Extensions.v1
         {
             builder.Services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo 
-                { 
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
                     Title = "API de localização",
                     Version = "v1",
                     Description = "Encontre e adicione localizações do Brasil",
@@ -96,7 +96,7 @@ namespace BaltaIoChallenge.WebApi.Extensions.v1
 
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);   
+                c.IncludeXmlComments(xmlPath);
             });
         }
     }

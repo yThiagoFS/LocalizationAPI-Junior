@@ -1,12 +1,7 @@
-﻿using Azure.Core;
-using BaltaIoChallenge.WebApi.Data.v1.Contexts;
-using BaltaIoChallenge.WebApi.Models.v1.Dtos.LocalizationDto.LocalizationManagementDto;
+﻿using BaltaIoChallenge.WebApi.Data.v1.Contexts;
 using BaltaIoChallenge.WebApi.Models.v1.Entities;
 using BaltaIoChallenge.WebApi.Repository.v1.Contracts;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Mono.TextTemplating;
-using System;
 
 namespace BaltaIoChallenge.WebApi.Repository.v1.Implementations
 {
@@ -38,7 +33,7 @@ namespace BaltaIoChallenge.WebApi.Repository.v1.Implementations
         {
             var caseInsensitive = StringComparison.OrdinalIgnoreCase;
 
-            var result =  _context
+            var result = _context
                 .Ibge
                 .AsEnumerable()
                 .Where(l => l.State.Contains(state, caseInsensitive) || l.State.StartsWith(state, caseInsensitive))

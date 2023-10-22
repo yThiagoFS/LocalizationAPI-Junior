@@ -14,7 +14,7 @@ namespace BaltaIoChallenge.WebApi.Extensions.v1
 
                     property.SetValue(null, value);
                 }
-                catch 
+                catch
                 {
                     throw new Exception("Something went wrong while trying to configurate the environment.");
                 }

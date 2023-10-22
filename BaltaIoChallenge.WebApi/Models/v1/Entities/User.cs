@@ -1,6 +1,4 @@
-﻿using BaltaIoChallenge.WebApi.Models.ValueObjects;
-
-namespace BaltaIoChallenge.WebApi.Models.v1.Entities
+﻿namespace BaltaIoChallenge.WebApi.Models.v1.Entities
 {
     public class User : Base
     {
