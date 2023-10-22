@@ -21,7 +21,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        ///     POST /api/v1/Auth/register
+        ///     POST /api/v1/auth/register
         ///     {
         ///         "name":"thiago",
         ///         "emailAddress":"thiago123@gmail.com",
@@ -45,8 +45,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         {
             var response = await _registerService.RegisterUserAsync(dto);
 
-            if (!response.IsSuccess)
-                return BadRequest(response);
+            if (!response.IsSuccess) return BadRequest(response);
 
             return Ok(response);
             
@@ -59,7 +58,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        ///     POST /api/v1/Auth/login 
+        ///     POST /api/v1/auth/login 
         ///     {
         ///         "emailAddress":"thiago123@gmail.com",
         ///         "password":"b8x!@7maz9*#=",
@@ -84,8 +83,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
 
             if (response.Status == (int)HttpStatusCode.NotFound) return NotFound(response);
 
-            if (!response.IsSuccess)
-                return BadRequest(response);
+            if (!response.IsSuccess) return BadRequest(response);
 
             return Ok(response);
         }

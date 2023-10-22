@@ -23,7 +23,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        ///     GET /api/v1/Localization/sp
+        ///     GET /api/v1/localization/sp
         ///
         /// </remarks>
         /// <response code="200">Localização(ões) encontrada(s).</response>
@@ -55,7 +55,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        ///     GET /api/v1/Localization/osasco
+        ///     GET /api/v1/localization/osasco
         ///
         /// </remarks>
         /// <response code="200">Localização(ões) encontrada(s).</response>
@@ -74,11 +74,9 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         {
             var response = await _searchLocalizationService.SearchByCityAsync(city);
 
-            if (response.Status == 404)
-                return NotFound(response);
+            if (response.Status == 404) return NotFound(response);
 
-            if (!response.IsSuccess)
-                return BadRequest(response);
+            if (!response.IsSuccess) return BadRequest(response);
 
             return Ok(response);
         }
@@ -89,7 +87,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        ///     GET /api/v1/Localization/1
+        ///     GET /api/v1/localization/1
         ///
         /// </remarks>
         /// <response code="200">Localização encontrada.</response>
@@ -108,11 +106,9 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         {
             var response = await _searchLocalizationService.SearchByCodeAsync(id);
 
-            if (response.Status == (int)HttpStatusCode.NotFound)
-                return NotFound(response);
+            if (response.Status == (int)HttpStatusCode.NotFound) return NotFound(response);
 
-            if (!response.IsSuccess)
-                return BadRequest(response);
+            if (!response.IsSuccess) return BadRequest(response);
 
             return Ok(response);
         }
@@ -123,7 +119,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        ///     POST /api/v1/Localization
+        ///     POST /api/v1/localization
         ///     {
         ///        "id": 1001,
         ///        "state": "sp",
@@ -159,7 +155,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        ///     PUT /api/v1/Localization/3
+        ///     PUT /api/v1/localization/3
         ///     {
         ///        "state": "sp",
         ///        "city": "osasco"
@@ -199,7 +195,7 @@ namespace BaltaIoChallenge.WebApi.Controllers.v1
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        ///     DELETE /api/v1/Localization/3
+        ///     DELETE /api/v1/localization/3
         ///
         /// </remarks>
         /// <response code="200">Mensagem com a confirmação da exclusão.</response>

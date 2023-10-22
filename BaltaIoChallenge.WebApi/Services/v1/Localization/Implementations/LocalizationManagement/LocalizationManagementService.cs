@@ -1,18 +1,13 @@
-﻿using Azure.Core;
-using BaltaIoChallenge.WebApi.Exceptions.v1;
+﻿using BaltaIoChallenge.WebApi.Exceptions.v1;
 using BaltaIoChallenge.WebApi.Models.v1.Dtos;
-using BaltaIoChallenge.WebApi.Models.v1.Dtos.AuthDto.RegisterDto;
 using BaltaIoChallenge.WebApi.Models.v1.Dtos.LocalizationDto.LocalizationManagementDto;
 using BaltaIoChallenge.WebApi.Models.v1.Entities;
 using BaltaIoChallenge.WebApi.Repository.v1.Contracts;
-using BaltaIoChallenge.WebApi.Repository.v1.Implementations;
 using BaltaIoChallenge.WebApi.Services.v1.Localization.Contracts;
 using BaltaIoChallenge.WebApi.Specifications.v1;
 using Microsoft.EntityFrameworkCore;
-using Mono.TextTemplating;
 using System.Text;
 using System.Text.RegularExpressions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BaltaIoChallenge.WebApi.Services.v1.Localization.Implementations.LocationManagement
 {
@@ -60,7 +55,7 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Localization.Implementations.Locat
                 var localization = await _localizationRepository.GetByCodeAsync(code);
 
                 if (localization is null)
-                    return new ResponseDto<LocalizationManagementResponseDto>("Localization not found;", 404);
+                    return new ResponseDto<LocalizationManagementResponseDto>("Localization not found.", 404);
 
                 await _localizationRepository.DeleteAsync(localization);
 
@@ -146,9 +141,9 @@ namespace BaltaIoChallenge.WebApi.Services.v1.Localization.Implementations.Locat
             var errors = new StringBuilder();
 
             if (state.Length != 2)
-                errors.Append("State: State should only have 2 characters");
+                errors.Append("State: State should only have 2 characters.");
             else if (!Regex.IsMatch(state, "^[a-zA-Z]*$"))
-                errors.Append("State: State must have only letters, accent or '-'.");
+                errors.Append("State: State must have only letters.");
 
             if(errors.Length > 0)
                 throw new SpecificationException($"{string.Join(System.Environment.NewLine, errors)}");
